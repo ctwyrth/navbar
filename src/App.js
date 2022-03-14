@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import { useState, useMemo, createContext } from 'react'
 import './App.css';
+import Wrapper from './components/Wrapper';
+import Navbar from './components/Navbar';
+import FormWrapper from './components/FormWrapper';
+import Form from './components/Form';
+
+export const NavbarContext = createContext({
+  username: '',
+  setUsername: () => {},
+});
 
 function App() {
+  const [username, setUsername] = useState('HI');
+  const value = useMemo( () => ({ username, setUsername }), [username] );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <NavbarContext.provider value={ value }>
+        <Wrapper>
+          <Navbar />
+          <FormWrapper>
+            <Form />
+          </FormWrapper>
+        </Wrapper>
+      </NavbarContext.provider>
     </div>
   );
 }
