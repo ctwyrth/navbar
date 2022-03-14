@@ -1,17 +1,16 @@
 import React, { useContext } from 'react';
+import { NavbarContext } from '../App';
 
-const Navbar = ({NavbarContext}) => {
-   const { username } = useContext(NavbarContext);
+const Navbar = () => {
+   const { username, setUsername } = useContext(NavbarContext);
 
    return (
-      <div className="container">
-         <nav className="navbar navbar-light bg-light">
-            <div class="container-fluid">
-               <span class="navbar-brand mb-0 h1">Navbar</span>
-               <span className="mb-o">{ username }</span>
-            </div>
-         </nav>
-      </div>
+      <nav className="navbar navbar-light bg-light">
+         <div className="container-fluid">
+            <span className="navbar-brand mb-0 h1">Navbar</span>
+            <span className="mb-o">{ username }</span>
+         </div>
+      </nav>
    );
 }
 

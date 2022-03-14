@@ -7,7 +7,7 @@ import Form from './components/Form';
 
 export const NavbarContext = createContext({
   username: '',
-  setUsername: () => {},
+  setUsername: () => {}
 });
 
 function App() {
@@ -16,14 +16,14 @@ function App() {
 
   return (
     <div className="container">
-      <NavbarContext.provider value={ value }>
+      <NavbarContext.Provider value={ value }>
         <Wrapper>
           <Navbar />
-          <FormWrapper>
-            <Form />
-          </FormWrapper>
+            <FormWrapper>
+              <Form />
+            </FormWrapper>
         </Wrapper>
-      </NavbarContext.provider>
+      </NavbarContext.Provider>
     </div>
   );
 }

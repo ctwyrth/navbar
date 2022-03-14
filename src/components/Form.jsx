@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
+import { NavbarContext } from '../App';
 
-const Form = ({NavbarContext}) => {
-   const { username, setUsername} = useContext(NavbarContext);
+const Form = () => {
+   const { username, setUsername } = useContext(NavbarContext);
    const handleOnChange = (e) => setUsername(e.target.value);
 
    return (
