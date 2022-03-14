@@ -11,18 +11,18 @@ export const NavbarContext = createContext({
 });
 
 function App() {
-  const [username, setUsername] = useState('HI');
+  const [username, setUsername] = useState('');
   const value = useMemo( () => ({ username, setUsername }), [username] );
 
   return (
     <div className="container">
       <NavbarContext.Provider value={ value }>
         <Wrapper>
-          <Navbar />
-            <FormWrapper>
-              <Form />
-            </FormWrapper>
+          {/* <Navbar /> */}
         </Wrapper>
+        <FormWrapper>
+          {/* <Form /> */}
+        </FormWrapper>
       </NavbarContext.Provider>
     </div>
   );
